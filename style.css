@@ -1,0 +1,77 @@
+:root {
+  --rotating-duration: 5s;
+  --sun-size: 100px;
+  --earth-size: 50px;
+}
+
+body {
+	background-color: #0e0e3f;
+}
+
+.galaxy {
+	position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -50px;
+}
+
+.sun,
+.earth,
+.moon {
+	border-radius: 45%;
+}
+
+.sun {
+	width: var(--sun-size);
+	height: var(--sun-size);
+	background-color: yellow;
+	animation: sun var(--rotating-duration) infinite;
+	animation-timing-function: linear;
+}
+
+.earth {
+	width: var(--earth-size);
+	height: var(--earth-size);
+	margin: auto;
+	background-color: green;
+	transform: translateX(150px) translateY(25px);
+	animation: earth var(--rotating-duration) infinite;
+	animation-timing-function: linear;
+	
+}
+
+.moon {
+	width: 30px;
+	height: 30px;
+	background-color: gray;
+	animation: moon var(--rotating-duration) infinite;
+	animation-timing-function: linear;
+}
+
+@keyframes sun {
+	from {
+		transform: rotateZ(0deg);
+	}
+	to {
+		transform: rotateZ(360deg);
+	}
+}
+
+@keyframes earth {
+	from {
+		transform: translateX(150px) translateY(25px) rotateZ(0deg);
+	}
+	to {
+		transform: translateX(150px) translateY(25px) rotateZ(360deg);
+	}
+}
+
+@keyframes moon {
+	from {
+		transform: translateX(70px) translateY(15px) rotateZ(0deg);
+	}
+	to {
+		transform: translateX(70px) translateY(15px) rotateZ(360deg);
+	}
+}
