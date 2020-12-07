@@ -2,6 +2,7 @@
   --rotating-duration: 5s;
   --sun-size: 100px;
   --earth-size: 50px;
+  --moon-size: 30px;
 }
 
 body {
@@ -42,8 +43,8 @@ body {
 }
 
 .moon {
-	width: 30px;
-	height: 30px;
+	width: var(--moon-size);
+	height: var(--moon-size);
 	background-color: gray;
 	animation: moon var(--rotating-duration) infinite;
 	animation-timing-function: linear;
