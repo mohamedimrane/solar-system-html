@@ -17,6 +17,9 @@
 	--mars-size: 20px;
 	--mars-distance-from-sun: 230px;
 	--mars-color: orange;
+	--jupiter-size: 50px;
+	--jupiter-distance-from-sun: 290px;
+	--jupiter-color: rgb(97, 51, 51);
 }
 
 body {
@@ -93,6 +96,15 @@ body {
 	animation-timing-function: linear;
 }
 
+.jupiter {
+	width: var(--jupiter-size);
+	height: var(--jupiter-size);
+	margin: auto;
+	background-color: var(--jupiter-color);
+	animation: jupiter var(--rotating-duration) infinite;
+	animation-timing-function: linear;
+}
+
 @keyframes sun {
 	from {
 		transform: rotateZ(0deg);
@@ -145,5 +157,14 @@ body {
 	}
 	to {
 		transform: translateX(var(--mars-distance-from-sun)) translateY(-30px) rotateZ(360deg);
+	}
+}
+
+@keyframes jupiter {
+	from {
+		transform: translateX(var(--jupiter-distance-from-sun)) translateY(-60px) rotateZ(0deg);
+	}
+	to {
+		transform: translateX(var(--jupiter-distance-from-sun)) translateY(-60px) rotateZ(360deg);
 	}
 }
