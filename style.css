@@ -1,8 +1,19 @@
 :root {
-  --rotating-duration: 5s;
-  --sun-size: 100px;
-  --earth-size: 50px;
-  --moon-size: 30px;
+  --rotating-duration: 10s;
+	--sun-size: 100px;
+	--sun-color: yellow;
+	--mercury-size: 10px;
+	--mercury-distance-from-sun: 80px;
+	--mercury-color: silver;
+	--venus-size: 30px;
+	--venus-distance-from-sun: 120px;
+	--venus-color: rgb(216, 168, 78);
+	--earth-size: 30px;
+	--earth-distance-from-sun: 180px;
+	--earth-color: green;
+	--moon-size: 10px;
+	--moon-distance-from-earth: 35px;
+	--moon-color: gray;
 }
 
 body {
@@ -18,6 +29,8 @@ body {
 }
 
 .sun,
+.mercury,
+.venus,
 .earth,
 .moon {
 	border-radius: 45%;
@@ -26,26 +39,42 @@ body {
 .sun {
 	width: var(--sun-size);
 	height: var(--sun-size);
-	background-color: yellow;
+	background-color: var(--sun-color);
 	animation: sun var(--rotating-duration) infinite;
 	animation-timing-function: linear;
+}
+
+.mercury {
+  width: var(--mercury-size);
+  height: var(--mercury-size);
+  margin: auto;
+  background-color: var(--mercury-color);
+  animation: mercury var(--rotating-duration) infinite;
+  animation-timing-function: linear;
+}
+
+.venus {
+  width: var(--venus-size);
+  height: var(--venus-size);
+  margin: auto;
+  background-color: var(--venus-color);
+  animation: venus var(--rotating-duration) infinite;
+  animation-timing-function: linear;
 }
 
 .earth {
 	width: var(--earth-size);
 	height: var(--earth-size);
 	margin: auto;
-	background-color: green;
-	transform: translateX(150px) translateY(25px);
+	background-color: var(--earth-color);
 	animation: earth var(--rotating-duration) infinite;
 	animation-timing-function: linear;
-	
 }
 
 .moon {
 	width: var(--moon-size);
 	height: var(--moon-size);
-	background-color: gray;
+	background-color: var(--moon-color);
 	animation: moon var(--rotating-duration) infinite;
 	animation-timing-function: linear;
 }
@@ -59,20 +88,39 @@ body {
 	}
 }
 
-@keyframes earth {
+@keyframes mercury {
 	from {
-		transform: translateX(150px) translateY(25px) rotateZ(0deg);
+		transform: translateX(var(--mercury-distance-from-sun)) translateY(45px) rotateZ(0deg);
 	}
 	to {
-		transform: translateX(150px) translateY(25px) rotateZ(360deg);
+		transform: translateX(var(--mercury-distance-from-sun)) translateY(45px) rotateZ(360deg);
+	}
+}
+
+@keyframes venus {
+	from {
+		transform: translateX(var(--venus-distance-from-sun)) translateY(30px) rotateZ(0deg);
+	}
+	to {
+		transform: translateX(var(--venus-distance-from-sun)) translateY(30px) rotateZ(360deg);
+	}
+}
+
+
+@keyframes earth {
+	from {
+		transform: translateX(var(--earth-distance-from-sun)) translateY(25px) rotateZ(0deg);
+	}
+	to {
+		transform: translateX(var(--earth-distance-from-sun)) translateY(25px) rotateZ(360deg);
 	}
 }
 
 @keyframes moon {
 	from {
-		transform: translateX(70px) translateY(15px) rotateZ(0deg);
+		transform: translateX(var(--moon-distance-from-earth)) translateY(15px) rotateZ(0deg);
 	}
 	to {
-		transform: translateX(70px) translateY(15px) rotateZ(360deg);
+		transform: translateX(var(--moon-distance-from-earth)) translateY(15px) rotateZ(360deg);
 	}
 }
