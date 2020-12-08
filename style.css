@@ -1,5 +1,5 @@
 :root {
-  --rotating-duration: 10s;
+--rotating-duration: 10s;
 	--sun-size: 100px;
 	--sun-color: yellow;
 	--mercury-size: 10px;
@@ -20,6 +20,9 @@
 	--jupiter-size: 50px;
 	--jupiter-distance-from-sun: 290px;
 	--jupiter-color: rgb(97, 51, 51);
+	--saturn-size: 45px;
+	--saturn-distance-from-sun: 370px;
+	--saturn-color: rgb(191, 135, 51);
 }
 
 body {
@@ -40,7 +43,8 @@ body {
 .earth,
 .moon,
 .mars,
-.jupiter {
+.jupiter,
+.saturn {
 	border-radius: 45%;
 }
 
@@ -105,6 +109,23 @@ body {
 	animation-timing-function: linear;
 }
 
+.saturn {
+	width: var(--saturn-size);
+	height: var(--saturn-size);
+	margin: auto;
+	background-color: var(--saturn-color);
+	animation: saturn var(--rotating-duration) infinite;
+	animation-timing-function: linear;
+}
+
+.ring {
+	border: 6px solid rgb(100, 70, 24);
+	border-radius: 50%;
+	width: calc(var(--saturn-size) - 25px);
+	height: calc(var(--saturn-size) + 10px);
+	transform: translateX(7px) translateY(-11px);
+}
+
 @keyframes sun {
 	from {
 		transform: rotateZ(0deg);
@@ -166,5 +187,14 @@ body {
 	}
 	to {
 		transform: translateX(var(--jupiter-distance-from-sun)) translateY(-60px) rotateZ(360deg);
+	}
+}
+
+@keyframes saturn {
+	from {
+		transform: translateX(var(--saturn-distance-from-sun)) translateY(-105px) rotateZ(0deg);
+	}
+	to {
+		transform: translateX(var(--saturn-distance-from-sun)) translateY(-105px) rotateZ(360deg);
 	}
 }
