@@ -23,6 +23,10 @@
 	--saturn-size: 45px;
 	--saturn-distance-from-sun: 370px;
 	--saturn-color: rgb(191, 135, 51);
+	--saturn-ring-color: rgb(100, 70, 24);
+	--uranus-size: 45px;
+	--uranus-distance-from-sun: 440px;
+	--uranus-color: rgb(60, 190, 204);
 }
 
 body {
@@ -44,7 +48,8 @@ body {
 .moon,
 .mars,
 .jupiter,
-.saturn {
+.saturn,
+.uranus {
 	border-radius: 45%;
 }
 
@@ -119,11 +124,20 @@ body {
 }
 
 .ring {
-	border: 6px solid rgb(100, 70, 24);
+	border: 6px solid var(--saturn-ring-color);
 	border-radius: 50%;
 	width: calc(var(--saturn-size) - 25px);
 	height: calc(var(--saturn-size) + 10px);
 	transform: translateX(7px) translateY(-11px);
+}
+
+.uranus {
+	width: var(--uranus-size);
+	height: var(--uranus-size);
+	margin: auto;
+	background-color: var(--uranus-color);
+	animation: uranus var(--rotating-duration) infinite;
+	animation-timing-function: linear;
 }
 
 @keyframes sun {
@@ -196,5 +210,14 @@ body {
 	}
 	to {
 		transform: translateX(var(--saturn-distance-from-sun)) translateY(-105px) rotateZ(360deg);
+	}
+}
+
+@keyframes uranus {
+	from {
+		transform: translateX(var(--uranus-distance-from-sun)) translateY(-145px) rotateZ(0deg);
+	}
+	to {
+		transform: translateX(var(--uranus-distance-from-sun)) translateY(-145px) rotateZ(360deg);
 	}
 }
